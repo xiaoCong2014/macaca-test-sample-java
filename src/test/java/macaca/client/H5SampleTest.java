@@ -11,8 +11,7 @@ import static org.hamcrest.CoreMatchers.containsString;
 public class H5SampleTest {
     MacacaClient driver = new MacacaClient();
 
-    @Before
-    public void setUp() throws Exception {
+    @Before public void setUp() throws Exception {
         // platform: android or ios
         String platform = "android";
 
@@ -28,24 +27,19 @@ public class H5SampleTest {
         driver.initDriver(desiredCapabilities);
     }
 
-    @Test
-    public void test_case_1() throws Exception {
+    @Test public void test_case_1() throws Exception {
 
         System.out.println("------------#1 h5 web test-------------------");
 
-        driver
-            .get("http://www.baidu.com")
-            .elementById("index-kw")
-            .sendKeys("macaca")
-            .elementById("index-bn")
-            .tap()
-            .sleep(5000);
+        driver.get("http://www.baidu.com");
+        driver.elementById("index-kw").sendKeys("macaca");
+        driver.elementById("index-bn").click();
+        driver.sleep(5000);
         String source = driver.source();
         Assert.assertThat(source, containsString("macaca"));
     }
 
-    @After
-    public void tearDown() throws Exception {
+    @After public void tearDown() throws Exception {
         driver.quit();
     }
 }
