@@ -25,7 +25,7 @@ public class AndroidSampleTest {
          */
         JSONObject porps = new JSONObject();
         porps.put("platformName", platform);
-        porps.put("app", "/Users/lihuazhang/Desktop/android_app_bootstrap-debug.apk");
+        porps.put("app", "https://npmcdn.com/android-app-bootstrap@latest/android_app_bootstrap/build/outputs/apk/android_app_bootstrap-debug.apk");
         porps.put("reuse", 1);
         JSONObject desiredCapabilities = new JSONObject();
         desiredCapabilities.put("desiredCapabilities", porps);
