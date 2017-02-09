@@ -9,4 +9,5 @@ local.properties
 *.sw*
 *.un~
 target
+npm-debug.log
 .settings
