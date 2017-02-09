@@ -1,5 +1,5 @@
 {
-  "name": "mobile-app-sample-java",
+  "name": "macaca-test-sample-java",
   "version": "1.0.0",
   "description": "Macaca mobile app sample for Java",
   "keywords": [
@@ -8,7 +8,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/macaca-sample/mobile-app-sample-java.git"
+    "url": "git://github.com/macaca-sample/macaca-test-sample-java.git"
   },
   "license": "MIT"
 }
