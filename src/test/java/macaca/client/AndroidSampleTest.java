@@ -2,7 +2,11 @@ package macaca.client;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+
+import macaca.client.commands.Element;
 import macaca.client.common.ElementSelector;
+import macaca.client.common.GetElementWay;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -56,9 +60,36 @@ public class AndroidSampleTest {
         driver.drag(200, 420, 200, 10, 50, 100);
         driver.sleep(5000);
 
+        //  ci tap()
+        // 比如需要点击某个控件的特定位置
+        Element  alertCell = driver.getElement(GetElementWay.NAME, "Alert");
+        JSONObject alertCellRect = (JSONObject) alertCell.getRect();
+    	int x = alertCellRect.getIntValue("x");
+		int y = alertCellRect.getIntValue("y");
+		int width = alertCellRect.getIntValue("width");
+		int height = alertCellRect.getIntValue("height");
+		int centerX = x + width/2;
+		int centerY = y + height/2;
+
+        driver.tap(centerX, centerY);
+        driver.sleep(1000);
+        driver.dismissAlert();
+
+        // 通过右滑的方式返回上一层
+        driver.sleep(1000);
+        driver.back();
+
+
+        // 拖拽一个元素或者在多个坐标之间移动,实现tableview滚动操作
+        driver.drag(200,420,200,20,2, 100);
+        driver.sleep(1000);
+        driver.back();
+        driver.sleep(1000);
+
+
         System.out.println("------------#3 webview test-------------------");
 
-        driver.back().elementByName("Webview").click();
+        driver.elementByName("Webview").click();
         driver.sleep(3000);
         // save screen shot
         driver.saveScreenshot(courseFile + "/webView.png");
@@ -74,7 +105,20 @@ public class AndroidSampleTest {
         driver.sleep(5000);
         driver.saveScreenshot(courseFile + "/baidu.png");
 
-        switchToWebView(driver).elementById("index-kw").sendKeys("中文+TesterHome");
+//        switchToWebView(driver).elementById("index-kw").sendKeys("中文+TesterHome");
+
+        Element input = switchToWebView(driver).elementById("index-kw");
+        input.sendKeys("中文+TesterHome");
+        driver.sleep(1000);
+
+        // 测试清理API
+        input.clearText();
+        driver.sleep(1000);
+
+        // 重新输入
+        input.sendKeys("中文+TesterHome");
+        driver.sleep(1000);
+
         driver.elementById("index-bn").click();
         driver.sleep(5000);
         String source = driver.source();
