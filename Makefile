@@ -2,13 +2,23 @@ git_version = $$(git branch 2>/dev/null | sed -e '/^[^*]/d'-e's/* \(.*\)/\1/')
 npm_bin= $$(npm bin)
 
 all: test
-travis-desktop: server
+install:
+	@npm install
+travis-desktop: 
+	install
+	server
 	mvn -s settings.xml clean install
 	mvn test -Dtest=DesktopSampleTest
-travis-android: server
+travis-android: 
+	install
+	server
 	mvn -s settings.xml clean install
 	mvn test -Dtest=AndroidSampleTest
-travis-ios: server
+travis-ios: 
+	install
+	npm install macaca-ios --save-dev
+	@${npm_bin}/macaca doctor
+	server
 	mvn -s settings.xml clean install
 	mvn test -Dtest=IosSampleTest
 travis-h5: server
