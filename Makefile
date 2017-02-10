@@ -10,7 +10,7 @@ travis-android: server
 	mvn test -Dtest=AndroidSampleTest
 travis-ios: server
 	mvn -s settings.xml clean install
-	mvn test -Dtest=IOSSampleTest
+	mvn test -Dtest=IosSampleTest
 travis-h5: server
 	mvn -s settings.xml clean install
 	mvn test -Dtest=H5SampleTest
