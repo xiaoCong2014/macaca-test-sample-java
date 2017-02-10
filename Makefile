@@ -4,6 +4,7 @@ npm_bin= $$(npm bin)
 all: test
 install:
 	@npm install
+	npm i macaca-cli --save-dev
 travis-desktop: 
 	install
 	server
