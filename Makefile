@@ -11,16 +11,24 @@ travis-desktop:
 	mvn -s settings.xml clean install
 	mvn test -Dtest=DesktopSampleTest
 travis-android: 
+	echo "travis-android running"
 	install
 	server
 	mvn -s settings.xml clean install
 	mvn test -Dtest=AndroidSampleTest
 travis-ios: 
+	echo "travis-ios running---"
+	echo "install"
 	install
-	npm install macaca-ios --save-dev
+	echo "@npm install macaca-ios --save-dev"
+	@npm install macaca-ios --save-dev
+	echo "@${npm_bin}/macaca doctor"
 	@${npm_bin}/macaca doctor
+	echo "server"
 	server
+	echo "mvn -s settings.xml clean install"
 	mvn -s settings.xml clean install
+	echo "mvn test -Dtest=IosSampleTest"
 	mvn test -Dtest=IosSampleTest
 travis-h5: server
 	mvn -s settings.xml clean install
