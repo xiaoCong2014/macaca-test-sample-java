@@ -60,24 +60,24 @@ public class AndroidSampleTest {
         driver.drag(200, 420, 200, 10, 50, 100);
         driver.sleep(5000);
 
-        //  ci tap()
-        // 比如需要点击某个控件的特定位置
-        Element  alertCell = driver.getElement(GetElementWay.NAME, "Alert");
-        JSONObject alertCellRect = (JSONObject) alertCell.getRect();
-    	int x = alertCellRect.getIntValue("x");
-		int y = alertCellRect.getIntValue("y");
-		int width = alertCellRect.getIntValue("width");
-		int height = alertCellRect.getIntValue("height");
-		int centerX = x + width/2;
-		int centerY = y + height/2;
-
-        driver.tap(centerX, centerY);
-        driver.sleep(1000);
-        driver.dismissAlert();
-
-        // 通过右滑的方式返回上一层
-        driver.sleep(1000);
-        driver.back();
+//        //  ci tap()
+//        // 比如需要点击某个控件的特定位置
+//        Element  alertCell = driver.getElement(GetElementWay.NAME, "Alert");
+//        JSONObject alertCellRect = (JSONObject) alertCell.getRect();
+//    	int x = alertCellRect.getIntValue("x");
+//		int y = alertCellRect.getIntValue("y");
+//		int width = alertCellRect.getIntValue("width");
+//		int height = alertCellRect.getIntValue("height");
+//		int centerX = x + width/2;
+//		int centerY = y + height/2;
+//
+//        driver.tap(centerX, centerY);
+//        driver.sleep(1000);
+//        driver.dismissAlert();
+//
+//        // 通过右滑的方式返回上一层
+//        driver.sleep(1000);
+//        driver.back();
 
 
         // 拖拽一个元素或者在多个坐标之间移动,实现tableview滚动操作
