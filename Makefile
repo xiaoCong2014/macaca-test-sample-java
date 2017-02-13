@@ -4,7 +4,7 @@ npm_bin= $$(npm bin)
 all: test
 install:
 	@npm install
-	npm i macaca-cli --save-dev
+	npm i macaca-cli --save-dev --unsafe-perm=true
 travis-desktop: install
 	server
 	mvn -s settings.xml clean install
@@ -14,9 +14,8 @@ travis-android:install
 	server
 	mvn -s settings.xml clean install
 	mvn test -Dtest=AndroidSampleTest
-travis-ios: install
-	npm install macaca-cli --save-dev
-	npm install macaca-ios --save-dev
+travis-ios:install
+	@npm install macaca-ios --save-dev --unsafe-perm=true
 	macaca doctor
 	macaca server --verbose
 	sleep 10s
