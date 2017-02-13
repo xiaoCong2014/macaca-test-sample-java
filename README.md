@@ -1,11 +1,6 @@
 # macaca-test-sample-java
 
-[![build status][travis-image]][travis-url]
-
-[travis-image]: https://img.shields.io/travis/macacajs/macaca-test-sample-java.svg?style=flat-square
-[travis-url]: https://travis-ci.org/macacajs/macaca-test-sample-java
-
-Macaca test sample
+Macaca test sample for Java
 
 [API Doc](//macacajs.github.io/wd.java/)
 
@@ -30,13 +25,13 @@ Macaca test sample
 
 Start macaca server
 
-```shell
+``` bash
 $ macaca server --verbose
 ```
 
 exec test
 
-```shell
+``` bash
 $ mvn -s settings.xml clean install
 $ mvn test
 ```
@@ -46,11 +41,8 @@ $ mvn test
 - [ios-app-bootstrap](//github.com/xudafeng/ios-app-bootstrap)
 - [android-app-bootstrap](//github.com/xudafeng/android-app-bootstrap)
 
-## License
+## RUN CI
 
-The MIT License (MIT)
-
-## RUN CI 
 when source code changes, run CI Samples
 
 1. change current version : package.json
@@ -59,9 +51,11 @@ when source code changes, run CI Samples
 
 
 ## Problems
+
 1. when you run iosSampleTest.java,you may meet this problem:
 
-```
+
+``` bash
 
 ios_webkit_debug_proxy path: /usr/local/bin/ios_webkit_debug_proxy
 Could not connect to lockdownd. Exiting.: Permission denied
@@ -81,7 +75,11 @@ that's because you do not have permission for ios_webkit_debug_proxy, you can so
 2. if the problem still exists ,upgrade ios-ios-webkit-debug-proxy(my version is ios-webkit-debug-proxy-1.7.1)
 
 
-```
+``` bash
 $ brew upgrade ios-webkit-debug-proxy
 
 ```
+
+## License
+
+The MIT License (MIT)
