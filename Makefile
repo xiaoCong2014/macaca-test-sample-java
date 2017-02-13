@@ -4,6 +4,7 @@ npm_bin= $$(npm bin)
 all: test
 install:
 	@npm install
+	npm i macaca-cli --save-dev
 travis-desktop: install
 	server
 	mvn -s settings.xml clean install
@@ -14,17 +15,12 @@ travis-android:install
 	mvn -s settings.xml clean install
 	mvn test -Dtest=AndroidSampleTest
 travis-ios: install
-	echo "travis-ios running---"
-	echo "@npm install macaca-ios --save-dev"
 	npm install macaca-cli --save-dev
 	npm install macaca-ios --save-dev
-	echo "@${npm_bin}/macaca doctor"
-	${npm_bin}/macaca doctor
-	echo "server"
-	server
-	echo "mvn -s settings.xml clean install"
+	macaca doctor
+	macaca server --verbose
+	sleep 10s
 	mvn -s settings.xml clean install
-	echo "mvn test -Dtest=IosSampleTest"
 	mvn test -Dtest=IosSampleTest
 travis-h5: server
 	mvn -s settings.xml clean install
